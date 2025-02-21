@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>International Day Passport</title>
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <body>
+        <!-- <div id="coverContainer">
+        </div> -->
+        <h1 class="title">Raha GC International Day Digital Passport</h1>
+        <img class="cover" src="assets/Cover.png" alt="Passport cover image"> 
+
+        <h2><a href="stamps.html">Stamps</a></h2>
+        <h2><a href="list.html">Country List</a></h2>
+        <h2><a href="map.html">Map</a></h2>
+        <h2><a href="credits.html">Credits</a></h2>
+
+
+        <script>
+            if(!localStorage) {
+                localStorage.setItem('stamps', '[]');
+            } else {
+            stamps = JSON.parse(localStorage.getItem('stamps')) || [];
+            }
+
+            var cover = document.getElementsByClassName("cover");
+var bgColor = document.body.style.backgroundColor;
+var buttons = document.querySelectorAll('h2'); // Select all h2 elements
+var links = document.querySelectorAll('a'); // Select all a elements
+
+console.log(cover[0].src);
+
+console.log(stamps.length);
+if (stamps.length >= 28) {
+    cover[0].src = "assets/Cover2.png";
+    bgColor = '#27A777';
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].style.backgroundColor = '#186347';
+    }
+    for (var i = 0; i < links.length; i++) {
+        links[i].style.color = 'black';
+        links[i].style.borderColor = 'black';
+    }
+}
+
+if (stamps.length >= 55) {
+    cover[0].src = "assets/Cover3.png";
+    bgColor = 'white';
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].style.backgroundColor = 'white'; 
+    }
+    for (var i = 0; i < links.length; i++) {
+        links[i].style.color = '#D4AF37';
+        links[i].style.borderColor = '#D4AF37'; 
+    }
+}
+    document.body.style.backgroundColor = bgColor;
+
+            
+
+        </script>
+    </body>
+</html>
